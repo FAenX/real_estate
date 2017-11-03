@@ -1,4 +1,4 @@
-from django.contrib.sites.models import Site
+#from django.contrib.sites.models import Site
 from django.conf import settings
 from realestate.listing.models import TYPES
 from django import forms

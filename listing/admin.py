@@ -8,7 +8,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 from django.utils.translation import ugettext as _
 
 from realestate.listing.models import ListingImage, AttributeListing, Listing, Location, Agent, \
-    Deal, Attribute
+    Deal, Attribute,geoposition
 from realestate.listing.templatetags.extra_functions import currency
 from realestate.listing.utils import validate_attribute_value, \
     copy_model_instance, import_validator
@@ -169,3 +169,4 @@ admin.site.register(Location, LocationAdmin)
 admin.site.register(Agent, AgentAdmin)
 admin.site.register(Deal, DealsAdmin)
 admin.site.register(Attribute, AttributesAdmin)
+admin.site.register(geoposition)

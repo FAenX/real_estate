@@ -4,17 +4,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-4 select_height"> Mostrando {{ page_obj.start_index }} - {{ page_obj.end_index }}
-                    de {{ paginator.count }} resultados
+                <div class="col-md-4 select_height"> Number {{ page_obj.start_index }} - {{ page_obj.end_index }}
+                   of {{ paginator.count }} results
                 </div>
                 <div class="pull-right">
                     <form action="{% url 'properties_for_sale' %}" id="form-sort">
                         Ordenar por :
                         <select id="sort" name="sort" class="col-md-3">
-                            <option value="price">Precio: Ascendente</option>
+                            <option value="price">Prece: Ascending </option>
                             <option value="-price"{% if request.GET.sort == '-price' %}
                                     selected="selected"{% endif %}>
-                                Precio: Descendente
+                                Prece: Descending
                             </option>
                         </select>
                     </form>

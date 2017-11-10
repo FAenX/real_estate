@@ -11,6 +11,7 @@ import os
 import re
 from sorl.thumbnail import ImageField
 from django.utils.translation import ugettext_lazy as _
+from geoposition.fields import GeopositionField
 from realestate.home.models import Contact
 
 TYPES = (
@@ -25,18 +26,19 @@ TYPES = (
     ('industrial-building', _('Industrial Buildings')),
     ('commercial-warehouses', _('Commercial Warehouses')),
     ('commercial-land', _('Commercial Land')),
+    ('bedsitter',_('Bedsitter')),
 )
 
 LOCATION_STREET = 'street'
-LOCATION_SECTOR = 'sector'
-LOCATION_CITY = 'city'
-LOCATION_STATE = 'state'
+LOCATION_SECTOR = 'Area'
+LOCATION_CITY = 'Town'
+LOCATION_STATE = 'County'
 
 LOCATION_TYPES = (
     (LOCATION_STREET, _('Street')),
-    (LOCATION_SECTOR, _('Sector')),
-    (LOCATION_CITY, _('City')),
-    (LOCATION_STATE, _('State/Province')),
+    (LOCATION_SECTOR, _('Area')),
+    (LOCATION_CITY, _('Town')),
+    (LOCATION_STATE, _('County')),
 )
 
 OFFERS = (
@@ -51,6 +53,9 @@ VALIDATIONS = [
     ('realestate.listing.utils.validation_yesno', _('Yes/No')),
     ('realestate.listing.utils.validation_decimal', _('Decimal')),
 ]
+
+class geoposition(models.Model):
+    geoposition=GeopositionField()
 
 
 class LocationManager(models.Manager):
@@ -155,6 +160,8 @@ class Listing(models.Model):
     baths = models.PositiveIntegerField(_('Bathrooms'), default=0, null=True, blank=True)
     beds = models.PositiveIntegerField(_('Bedrooms'), default=0, null=True, blank=True)
     size = models.PositiveIntegerField(_('Size(m2)'), default=0, null=True, blank=True)
+
+    #try to get position from google maps New
     coords = models.CharField(max_length=255, default='19.000000,-70.400000', verbose_name=_('Coords'), null=True,
                               blank=True)
     agent = models.ForeignKey(Agent, null=True, blank=True, verbose_name=_('Agent'))

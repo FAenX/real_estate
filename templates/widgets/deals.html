@@ -14,9 +14,9 @@
                                  alt="{{ deal.listing.title }}" title="{{ deal.listing.title }}"/>
                         </a><br>
                     {% endthumbnail %}
-                    <b>Inmueble: </b><i>{{ deal.listing.type }}</i><br>
-                    <b>Provincia: </b><i>{{ deal.listing.location }}</i><br>
-                    <a href="{{ deal.listing.get_absolute_url }}">Ver Más</a><br>
+                    <b>Property: </b><i>{{ deal.listing.type }}</i><br>
+                    <b>County: </b><i>{{ deal.listing.location }}</i><br>
+                    <a href="{{ deal.listing.get_absolute_url }}">See More</a><br>
                 </td>
             </tr>
         {% endfor %}

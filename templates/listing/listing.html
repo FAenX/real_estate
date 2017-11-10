@@ -1,6 +1,6 @@
 {% extends 'base_theme.html' %}
 {% load extra_functions thumbnail i18n %}
-{% block title %}{{ listing.title }} | WILLIAMSMENDEZ.COM{% endblock %}
+{% block title %}{{ listing.title }} | Nyumba{% endblock %}
 {% block content %}
 
     <div class="modal hide" id="mapModal">
@@ -10,6 +10,7 @@
         <div class="modal-body">
             <iframe width="620" height="414"
                     src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ listing.coordenadas }}&amp;aq=&amp;sll={{ listing.coordenadas }}&amp;sspn={{ listing.coordenadas }}&amp;ie=UTF8&amp;t=m&amp;ll={{ listing.coordenadas }}&amp;spn={{ listing.coordenadas }}&amp;z=14&amp;output=embed"></iframe>
+
         </div>
     </div>
     <div class="modal hide" id="streetModal">
@@ -65,7 +66,7 @@
                 <br/>
 
                 <div class="col-md-12">
-                    <h4>Características</h4>
+                    <h4>Characterestics</h4>
 
                     <div class="row">
                         <ul>
@@ -89,7 +90,7 @@
                                         <img src="{{ image.url }}" alt="{{ en_area.title }}">
                                     {% endthumbnail %}
                                 </a>
-                                <h5>Precio : {{ en_area.price|currency }}</h5>
+                                <h5>Prece : {{ en_area.price|currency }}</h5>
 
                                 <p><a href="{{ en_area.absolute_url }}">{{ en_area.title }}</a><br/>
                                     {{ en_area.address }}
@@ -106,8 +107,8 @@
         <div class="col-md-3 pull-right" id="portamento_container">
             <div id="property_map" class="center">
                 <a href="#mapModal">
-                    <img src="http://maps.google.com/staticmap?center={{ listing.coordenadas }}&amp;zoom=14&amp;size=250x250&amp;maptype=mobile&amp;markers={{ listing.coordenadas }},red&amp;key=ABQIAAAAqQJ-gFBKUbBLaFN1HQF4KBQ_k2Fxd8XZtbWUsvz5Vrarxzf2SRSh7DRXLQmAZ-6XwtrmMhkINGT27A&amp;sensor=false"
-                         alt=""/>
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ listing.coordenadas }}&zoom=13&size=250x250&maptype=mobile&markers={{ listing.coordenadas }},red&key=AIzaSyAH9oCcMyM3OuJsR3qYDex7vWUFfJdtNtE"  alt=""/>
+
                 </a>
 
                 <p>

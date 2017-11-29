@@ -54,9 +54,6 @@ VALIDATIONS = [
     ('realestate.listing.utils.validation_decimal', _('Decimal')),
 ]
 
-class geoposition(models.Model):
-    geoposition=GeopositionField()
-
 
 class LocationManager(models.Manager):
     def states(self, **kwargs):
@@ -162,8 +159,7 @@ class Listing(models.Model):
     size = models.PositiveIntegerField(_('Size(m2)'), default=0, null=True, blank=True)
 
     #try to get position from google maps New
-    coords = models.CharField(max_length=255, default='19.000000,-70.400000', verbose_name=_('Coords'), null=True,
-                              blank=True)
+    coords = GeopositionField()
     agent = models.ForeignKey(Agent, null=True, blank=True, verbose_name=_('Agent'))
     contact = models.ForeignKey(Contact, null=True, blank=True)
     notes = models.TextField(max_length=500, verbose_name=_('Private Notes'), null=True, blank=True)

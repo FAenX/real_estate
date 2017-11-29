@@ -83,7 +83,11 @@ class MapView(JSONResponseMixin, AjaxResponseMixin, View):
 
         listings = []
         for listing in Listing.objects.active():
-            lat, lng = listing.coords.split(',')
+            #changed
+            pos=listing.coords.get()
+            lat=pos.position.latitute
+            lng=pos.position.longitude
+
             try:
                 im = get_thumbnail(listing.main_image.imagen, '135x90', crop='center', quality=99).url
             except (ValueError, AttributeError):
